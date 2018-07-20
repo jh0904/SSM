@@ -11,7 +11,6 @@
                 items.name LIKE '%${itemsCustom.name}%'
             </if>
         </if>
-
     </sql>
 
     <!-- 商品列表查询 -->
@@ -22,7 +21,7 @@
             resultType="com.how2java.pojo.Items">
         SELECT items.* FROM items WHERE items.name LIKE '%${value}%'
         <!--<where>
-            <include refid="query_items_where"></include>
+            <include refid="query_items_where"/>
         </where>-->
     </select>
 
