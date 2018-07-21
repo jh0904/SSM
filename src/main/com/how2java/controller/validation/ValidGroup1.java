@@ -9,5 +9,5 @@ package com.how2java.controller.validation;
  */
 public interface ValidGroup1 {
     //接口不定义方法，仅是对不同校验规则的分类
-    //此分组只校验商品长度
+    //此分组只校验商品长度。
 }

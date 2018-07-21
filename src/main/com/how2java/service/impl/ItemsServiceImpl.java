@@ -1,5 +1,6 @@
 package com.how2java.service.impl;
 
+import com.how2java.exception.CustomException;
 import com.how2java.mapper.ItemsMapper;
 import com.how2java.mapper.ItemsMapperCustom;
 import com.how2java.pojo.Items;
@@ -36,17 +37,22 @@ public class ItemsServiceImpl implements ItemsService {
         //通过ItemsMapperCustom查询数据库
         return itemsMapperCustom.findItemsList(itemsQueryVo);
     }
-
     @Override
     public ItemsCustom findItemsById(Integer id) throws Exception {
         Items items = itemsMapper.selectByPrimaryKey(id);
+        if(items==null){
+            throw new CustomException ("修改的商品信息不存在！");
+        }
+
         //中间对商品信息进行业务处理
         //....
         //返回ItemsCustom
-        ItemsCustom itemsCustom = new ItemsCustom();
+        ItemsCustom itemsCustom = null;
         //将items的属性值拷贝到itemsCustom(spring提供的)
-        BeanUtils.copyProperties(items, itemsCustom);
-
+        if(items!=null){
+            itemsCustom= new ItemsCustom ();
+            BeanUtils.copyProperties(items, itemsCustom);
+        }
         return itemsCustom;
     }
 

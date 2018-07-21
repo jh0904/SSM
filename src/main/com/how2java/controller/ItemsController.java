@@ -91,6 +91,10 @@ public class ItemsController {
     public String editItems(Model model, @RequestParam(value = "id", required = true) Integer Item_id) throws Exception {
 
         ItemsCustom itemsCustom = itemsService.findItemsById (Item_id);
+
+      /*  if(itemsCustom==null){
+            throw new CustomException ("修改的商品信息不存在！");
+        }*/
         model.addAttribute ("items", itemsCustom);
         return "editItems";
     }
