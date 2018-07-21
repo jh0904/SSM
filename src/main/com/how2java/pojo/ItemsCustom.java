@@ -1,6 +1,5 @@
 package com.how2java.pojo;
 
-
 /**
  * 
  * <p>Title: ItemsCustom</p>

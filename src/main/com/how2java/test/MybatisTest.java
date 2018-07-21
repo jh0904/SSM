@@ -8,6 +8,7 @@ import com.how2java.mapper.ItemsMapperCustom;
 import com.how2java.pojo.Category;
 import com.how2java.pojo.Items;
 import com.how2java.pojo.ItemsCustom;
+import com.how2java.pojo.ItemsQueryVo;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,12 +42,16 @@ public class MybatisTest {
 	}
 	@Test
 	public void test1() throws Exception {
-		List<Items> itemsList = itemsMapperCustom.findItemsList ("笔记本");
 
-		for (Items custom : itemsList) {
-			System.out.println (custom);
+		ItemsQueryVo itemsQueryVo = new ItemsQueryVo();
+		Items items = new Items ();
+		itemsQueryVo.setItems (items);
+		ItemsCustom itemsCustom1 = new ItemsCustom ();
+		itemsQueryVo.setItemsCustom (itemsCustom1);
+		List<ItemsCustom> itemsList = itemsMapperCustom.findItemsList (null);
+		for (ItemsCustom itemsCustom : itemsList) {
+			System.out.println (itemsCustom);
 		}
-
 	}
 
 	@Test

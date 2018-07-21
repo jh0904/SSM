@@ -1,7 +1,5 @@
 package cn.itcast.ssm.po;
 
-import com.how2java.pojo.Items;
-
 /**
  * 
  * <p>Title: ItemsCustom</p>
@@ -12,7 +10,6 @@ import com.how2java.pojo.Items;
  * @version 1.0
  */
 public class ItemsCustom extends Items {
-	
 	//添加商品信息的扩展属性
 
 }

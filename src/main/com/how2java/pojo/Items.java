@@ -1,16 +1,22 @@
 package com.how2java.pojo;
 
+import com.how2java.controller.validation.ValidGroup1;
+
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Date;
 
 public class Items {
     private Integer id;
 
+    @Size(min = 1,max = 30,message = "{items.name.length.error}",groups = {ValidGroup1.class})
     private String name;
 
     private Float price;
 
     private String pic;
 
+    @NotNull(message="{items.createtime.isNUll}")
     private Date createtime;
 
     private String detail;

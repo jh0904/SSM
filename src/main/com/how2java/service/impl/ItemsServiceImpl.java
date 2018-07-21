@@ -4,6 +4,7 @@ import com.how2java.mapper.ItemsMapper;
 import com.how2java.mapper.ItemsMapperCustom;
 import com.how2java.pojo.Items;
 import com.how2java.pojo.ItemsCustom;
+import com.how2java.pojo.ItemsQueryVo;
 import com.how2java.service.ItemsService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,8 +31,10 @@ public class ItemsServiceImpl implements ItemsService {
     private ItemsMapper itemsMapper;
 
     @Override
-    public List<Items> findItemsList(String s) throws Exception {
-        return itemsMapperCustom.findItemsList (s);
+    public List<ItemsCustom> findItemsList(ItemsQueryVo itemsQueryVo)
+            throws Exception {
+        //通过ItemsMapperCustom查询数据库
+        return itemsMapperCustom.findItemsList(itemsQueryVo);
     }
 
     @Override
