@@ -21,6 +21,8 @@
     </script>
 </head>
 <body>
+当前用户：${username }
+
 <form name="itemsForm" action="${pageContext.request.contextPath }/items/queryItems" method="post">
     查询条件：
 
